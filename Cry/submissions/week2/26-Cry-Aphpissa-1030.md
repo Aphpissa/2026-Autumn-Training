@@ -133,36 +133,36 @@ AI建议我把写的代码用def语法保存下来，保存成一个tool.py文�
 
 ## 3.补充
 
-由于没有第一种情况的代码，我让AI给我做了一个小数字的
+由于没有第一种情况的代码，我让AI给我出了一个小数字的题目
+
+本质上也是一样的，就是直接对c开e次方根
 
 ```python
 
 import gmpy2
 from Crypto.Util.number import long_to_bytes
 
-# 1. 题目给出的参数
+
 n = 40000014400001287
 e = 3
 c = 19100843355929489
 
-# 2. 直接尝试对 c 开 e 次方根
+
 root, is_exact = gmpy2.iroot(c, e)
 
 if is_exact:
-    print(f"[+] 成功直接开根！")
+    print(f"[+] True")
     
-    # 3. 降维并转回字符串
     m = int(root)
     flag = long_to_bytes(m).decode()
     
-    print(f"[+] 明文大整数 m = {m}")
+    print(f"[+]  m = {m}")
     print(f"[+] 最终明文 = {flag}")
 else:
-    print(f"[-] 开根失败，说明 m^e 大于 n，当前方法不适用。")
+    print(f"[-] error！")
 
 ```
 
-AI生成的，解释会更详细
 
 还有前面提到的多进程，这个我还没看懂
 
